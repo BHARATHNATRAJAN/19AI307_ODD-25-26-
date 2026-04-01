@@ -1,37 +1,28 @@
-# Ex.No:3(C) ABSTRACTION
+# Ex.No:3(b) POLYMORPHISM
 
 ## QUESTION:
-Description:
-Create abstract class GameScore with method finalScore().
-Subclasses:
-
-ArcadeGame: score = baseScore + (level × 100)
-
-PuzzleGame: score = (attempts ≤ 3) ? 1000 - (attempts × 100) : 500
-
-Input Format:
-
-First line: 1 or 2
-Second line: base, level (or attempts)
-
-Output Format:
-
-Final score (int)
+Write a Java program that calculates the area of different shapes using method overloading. Create a class AreaCalculator with:
+area(int side) for square
+area(int length, int breadth) for rectangle
+area(double radius) for circle
 
 ## AIM:
-To write a Java program using an abstract class GameScore with subclasses ArcadeGame and PuzzleGame, each implementing its own finalScore() method.
-
+To write a Java program to calculate the area of different shapes (square, rectangle, circle) using method overloading.
 
 ## ALGORITHM :
 1.	Start the program.
 2.	Import the necessary package 'java.util'
-3.	Create an abstract class GameScore with an abstract method finalScore().
-4.	Define subclass ArcadeGame where finalScore = baseScore + (level × 100).
-5.	Define subclass PuzzleGame where
-6.	If attempts ≤ 3, score = 1000 - (attempts × 100)
-7.	Else score = 500.
-8.	Take user input for game type and relevant values.
-9.	Display the final score based on game type.
+3.	Create a class AreaCalculator.
+4. Overload the area() method for different shapes:
+5. area(int side) → calculates area of a square.
+6. area(int length, int breadth) → calculates area of a rectangle.
+7. area(double radius) → calculates area of a circle.
+8. In the main() method:
+9. Create a Scanner object.
+10. Read required inputs: side, length, breadth, radius.
+11. Create an object of AreaCalculator.
+12. Call the overloaded area() methods and display the results.
+13. Stop the program.
 
 
 
@@ -40,64 +31,50 @@ To write a Java program using an abstract class GameScore with subclasses Arcade
 ## PROGRAM:
  ```
 /*
-Program to implement a Abstraction using Java
-Developed by:N.BHARATH
+Program to implement a Polymorphism using Java
+Developed by: N.BHARATH
 RegisterNumber:  212223230030
-
-
 */
+```
 
+## SOURCE CODE:
+```
 import java.util.*;
-
-abstract class GameScore {
-    abstract int finalScore();
-}
-
-class ArcadeGame extends GameScore {
-    int base, level;
-    ArcadeGame(int base, int level) {
-        this.base = base;
-        this.level = level;
+class AreaCalculator {
+    int area(int side){
+        return side*side;
     }
-    int finalScore() {
-        return base + (level * 100);
+    int area(int length, int breadth){
+        return length*breadth;
+    }
+    double area(double radius){
+        return Math.PI*radius*radius;
     }
 }
-
-class PuzzleGame extends GameScore {
-    int attempts;
-    PuzzleGame(int attempts) {
-        this.attempts = attempts;
-    }
-    int finalScore() {
-        if (attempts <= 3)
-            return 1000 - (attempts * 100);
-        else
-            return 500;
-    }
-}
-
-public class prog {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int type = sc.nextInt();
-        if (type == 1) {
-            int base = sc.nextInt();
-            int level = sc.nextInt();
-            ArcadeGame game = new ArcadeGame(base, level);
-            System.out.println(game.finalScore());
-        } else if (type == 2) {
-            int attempts = sc.nextInt();
-            PuzzleGame game = new PuzzleGame(attempts);
-            System.out.println(game.finalScore());
-        }
+public class Vijay{
+    public static void main(String[] args){
+        Scanner sc = new Scanner (System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        double d = sc.nextDouble();
+        AreaCalculator obj = new AreaCalculator();
+        System.out.println("Area of square: "+obj.area(a));
+        System.out.println("Area of rectangle: "+obj.area(b,c));
+        System.out.println("Area of circle: "+obj.area(d));
     }
 }
 ```
 
-## OUTPUT:
 
-<img width="1147" height="386" alt="image" src="https://github.com/user-attachments/assets/4447ae81-3e1b-46a2-91a4-e2ad7316e6a6" />
+
+
+
+
+## OUTPUT:
+<img width="866" height="395" alt="image" src="https://github.com/user-attachments/assets/df045e5a-1a0e-4bef-b716-8bbd955af337" />
+
+
 
 ## RESULT:
-The program successfully demonstrates abstraction and inheritance by computing the final score for different game types using subclass-specific logic.
+Thus, the Java program to calculate the area of square, rectangle, and circle using method overloading was executed successfully.
