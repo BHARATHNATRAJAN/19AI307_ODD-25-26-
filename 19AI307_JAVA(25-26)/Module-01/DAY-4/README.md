@@ -23,8 +23,8 @@ To write a Java Program to Find the Average of Array Elements.
  ```
 /*
 Program to implement a Array concept using Java
-Developed by: Devasanjay N
-RegisterNumber: 212223040032
+Developed by: N.BHARATH
+RegisterNumber:  212223230030
 
 
 
