@@ -1,30 +1,30 @@
-# Ex.No:3(D) INTERFACE 
+# Ex.No:3(C) ABSTRACTION
 
 ## QUESTION:
-You are programming bots that analyze weather data. Each bot must implement a common interface and give a prediction.
-
-Bot Types:
-
-SunBot: Predicts "HOT" if temperature > 30, else "MODERATE".
-
-RainBot: Predicts "COLD" if temperature < 20, else "WARM".
-
-Input:
-
-temperature botType (1 for SunBot, 2 for RainBot)Output: Prediction as a string.
+Create an abstract class Employee with method calculatePay(). Extend it to HourlyEmployee and SalariedEmploye
 
 ## AIM:
-To implement weather prediction using interfaces with two bots — SunBot and RainBot.
+To write a Java program using an abstract class Employee with an abstract method calculatePay() and extend it to HourlyEmployee and SalariedEmployee to calculate pay for different types of employees.
 
 ## ALGORITHM :
 1.	Start the program.
 2.	Import the necessary package 'java.util'
-3.	Create WeatherBot interface with predict() method.
-4.	Implement SunBot and RainBot classes with different prediction logic.
-5.	Take temperature and botType as input.
-6.	Use the chosen bot to call predict().
-7.	Display the prediction.
-
+3.	Create an abstract class Employee with an abstract method calculatePay().
+4. Create a class HourlyEmployee extending Employee:
+Declare fields hours and rate.
+Create a constructor to initialize these fields.
+Override calculatePay() to return hours * rate.
+5. Create a class SalariedEmployee extending Employee:
+Declare a field value (salary).
+Create a constructor to initialize value.
+Override calculatePay() to return value.
+6. In the main() method:
+Create a Scanner object to read input.
+Read an integer val to choose employee type (1 for hourly, else salaried).
+For hourly employee: read hours and rate, create object, and call calculatePay().
+For salaried employee: read salary, create object, and call calculatePay().
+Display the calculated pay.
+7. Stop the program.
 
 
 
@@ -33,61 +33,72 @@ To implement weather prediction using interfaces with two bots — SunBot and Ra
 ## PROGRAM:
  ```
 /*
-Program to implement a Interface using Java
-Developed by:N.BHARATH
-RegisterNumber:  212223230030
-
-
+Program to implement a Abstraction using Java
+Developed by: N.BHARATH
+RegisterNumber:  212223230030 
 */
+```
 
-import java.util.Scanner;
-
-interface WeatherBot {
-    String predict(int temperature);
+## SOURCE CODE:
+```
+import java.util.*;
+abstract class Employee{
+    abstract double calculatePay();
+    
 }
-
-class SunBot implements WeatherBot {
-    public String predict(int temperature) {
-        if (temperature > 30) {
-            return "HOT";
-        } else {
-            return "MODERATE";
-        }
+class HourlyEmployee extends Employee{
+    private int hours;
+    private double rate;
+    
+   public HourlyEmployee(int a , double b){
+        this.hours = a;
+        this.rate = b;
+    }
+    @Override
+    double calculatePay(){
+        return hours*rate;
     }
 }
-
-class RainBot implements WeatherBot {
-    public String predict(int temperature) {
-        if (temperature < 20) {
-            return "COLD";
-        } else {
-            return "WARM";
-        }
+class SalariedEmployee extends Employee{
+    private double value;
+    public SalariedEmployee(double a){
+        this.value= a;
+    }
+    @Override
+    double calculatePay(){
+        return value;
     }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int temperature = sc.nextInt();
-        int botType = sc.nextInt();
-        WeatherBot bot;
-
-        if (botType == 1) {
-            bot = new SunBot();
-        } else {
-            bot = new RainBot();
+public class Vijay{
+    public static void main(String[] args){
+        Scanner sc = new Scanner (System.in);
+        int val = sc.nextInt();
+        if(val==1)
+        {
+            int hour = sc.nextInt();
+            double rate = sc.nextDouble();
+            HourlyEmployee obj = new HourlyEmployee(hour,rate);
+            System.out.print(obj.calculatePay());
         }
-
-        System.out.println(bot.predict(temperature));
-        sc.close();
+        else
+        {
+           double salary = sc.nextDouble();
+           SalariedEmployee obi = new SalariedEmployee(salary);
+           System.out.println(obi.calculatePay());
+        }
     }
 }
 ```
 
+
+
+
+
+
 ## OUTPUT:
-<img width="1148" height="334" alt="image" src="https://github.com/user-attachments/assets/b635390f-88b0-47d2-893e-ab671a5dac52" />
+<img width="412" height="279" alt="image" src="https://github.com/user-attachments/assets/6742e8ff-7a54-4d42-9d2b-8d15a1446201" />
+
 
 
 ## RESULT:
-The program predicts weather conditions using interface implementation and method overriding.
+Thus, the Java program using an abstract class Employee and method overriding for HourlyEmployee and SalariedEmployee was executed successfully. The program calculates and displays pay based on employee type.
