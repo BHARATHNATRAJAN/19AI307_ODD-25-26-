@@ -32,8 +32,8 @@ To write a Java program to calculate the factorial of a number using a for loop.
  ```
 /*
 Program to implement a Looping Statement using Java
-Developed by: Devasanjay N
-RegisterNumber: 212223040032
+Developed by: N.BHARATH
+RegisterNumber:  212223230030
 
 
 
